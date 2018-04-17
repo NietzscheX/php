@@ -1,0 +1,9 @@
+FROM tommylau/php-5.2
+
+ADD ./ZendOptimizer.so /usr/lib/php5/
+ADD zend_optimizer.ini  /usr/local/etc/php/conf.d
+
+WORKDIR /data/htdocs
+# Run php-fpm
+EXPOSE 9000
+CMD ["php-cgi", "--fpm"]
